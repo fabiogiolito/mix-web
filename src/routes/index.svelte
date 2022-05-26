@@ -68,12 +68,12 @@
     </div>
 
     <!-- Text content -->
-    <div class="relative text-white px-6 lg:pt-16">
+    <div class="relative px-6 lg:pt-32 pb-24">
 
       <div class="relative z-10 text-center">
-        <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[150px] 2xl:mb-12">Expand <br /> your mind</h1>
-        <h2 class="text-xl leading-tight mb-6 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
-        <p class="text-orange-500 mb-12">
+        <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
+        <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
+        <p class="text-orange-500 mb-6">
           <span>Join</span>
           {#key count}
             <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
@@ -85,7 +85,7 @@
       </div>
 
       <!-- Text shadow -->
-      <span class="absolute inset-0 bg-black blur-3xl" />
+      <span class="absolute inset-0 bg-black blur-3xl lg:opacity-80" />
     </div>
   </div>
 

@@ -1,0 +1,25 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black;
+}
+
+.btn {
+  @apply bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium;
+}
+
+.btn-square {
+  @apply p-3;
+}
+
+.btn-primary {
+  @apply bg-white text-black;
+}
+
+.btn-dot::before {
+  content: '';
+  @apply inline-block rounded-full w-3 h-3 bg-orange-500 mr-3 -ml-1;
+}

@@ -1,3 +1,42 @@
+<script>
+  import { onDestroy, onMount } from "svelte";
+  import { fly } from "svelte/transition"
+
+  let count = Math.floor(new Date().getTime() / 1000) - 1653579588;
+
+  $: printCount = count.toLocaleString("en-US");
+
+  let timeout;
+
+  // Recursive timeout with random duration
+  function createTimeout(callback) {
+    // Get random seconds
+    let seconds = Math.floor(Math.random() * (10 - 3 + 1)) + 3
+    console.log(`will run in ${seconds} s`)
+
+    // Create timeout
+    timeout = setTimeout(() => {
+
+      // Create new timeout
+      createTimeout(callback);
+
+      // Execute callback
+      callback();
+
+    }, seconds * 1000);
+  }
+
+  onMount(() => {
+    createTimeout(() => {
+      count = Math.floor(new Date().getTime() / 1000) - 1653579588;
+    });
+  });
+
+  onDestroy(() => {
+    clearTimeout(timeout);
+  });
+</script>
+
 <svelte:head>
   <title>Mix - Expand your Mind</title>
 </svelte:head>
@@ -32,9 +71,15 @@
     <div class="relative text-white px-6 lg:pt-16">
 
       <div class="relative z-10 text-center">
-        <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl">Expand <br /> your mind</h1>
-        <h2 class="text-xl leading-tight mb-6">The coolest stuff on the internet, curated by people like you.</h2>
-        <p class="text-orange-500 mb-12">Join 5,419 curators today</p>
+        <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[150px] 2xl:mb-12">Expand <br /> your mind</h1>
+        <h2 class="text-xl leading-tight mb-6 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
+        <p class="text-orange-500 mb-12">
+          <span>Join</span>
+          {#key count}
+            <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
+          {/key}
+          <span>curators today</span>
+        </p>
 
         <button class="btn btn-primary btn-dot">Get the Mix App</button>
       </div>

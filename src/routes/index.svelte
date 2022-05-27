@@ -6,13 +6,16 @@
   const TWITTER_URL = "https://twitter.com/getmixapp";
   const INSTAGRAM_URL = "https://www.instagram.com/getmixapp/";
 
-  let timeout; // Reference to clear timeouts on destroy
+  // Flip through content types
+  let contentTypeInterval;
+  let contentList = [ "content", "images", "videos", "articles", "gifs", "memes", "designs", "fashion", "puppies" ];
+  let currentContentIndex = 0;
+  $: printContent = contentList[currentContentIndex];
 
-  // Number of curators on platform
-  let count = getCuratorsCount();
-
-  // Printable version of count with commas (reactive)
-  $: printCount = count.toLocaleString("en-US");
+  // Randomly update curator count
+  let curatorsUpdateTimeout; // Reference to clear timeout on destroy
+  let curatorsCount = getCuratorsCount(); // Number of curators on platform
+  $: printCuratorsCount = curatorsCount.toLocaleString("en-US"); // Printable version of count with commas (reactive)
 
   // Get a fake number of curators
   function getCuratorsCount() {
@@ -20,15 +23,15 @@
   }
 
   // Recursive timeout creation with random duration
-  function createTimeout(callback) {
+  function createCuratorsTimeout(callback) {
     // Get random seconds between 3 and 10
-    let seconds = Math.floor(Math.random() * (10 - 3 + 1)) + 3
+    let seconds = Math.floor(Math.random() * (20 - 7 + 1)) + 7
 
     // Create timeout
-    timeout = setTimeout(() => {
+    curatorsUpdateTimeout = setTimeout(() => {
 
       // Create new timeout
-      createTimeout(callback);
+      createCuratorsTimeout(callback);
 
       // Execute callback
       callback();
@@ -37,13 +40,22 @@
   }
 
   onMount(() => {
-    createTimeout(() => {
-      count = getCuratorsCount();
+    // Initiate content type update
+    contentTypeInterval = setInterval(() => {
+      currentContentIndex = currentContentIndex >= contentList.length - 1 ? 0 : currentContentIndex + 1;
+    }, 2000);
+
+    // Initiate curators count update
+    createCuratorsTimeout(() => {
+      curatorsCount = getCuratorsCount();
     });
+
+    
   });
 
   onDestroy(() => {
-    clearTimeout(timeout);
+    clearInterval(contentTypeInterval);
+    clearTimeout(curatorsUpdateTimeout);
   });
 
 </script>
@@ -94,7 +106,13 @@
             Expand <br /> your mind
           </h1>
           <h2 class="text-xl font-light leading-tight mb-10 2xl:text-2xl opacity-50">
-            The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.
+            <span>The coolest</span>
+            {#key currentContentIndex}
+              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
+                {printContent}
+              </span>
+            {/key}
+            <span>on the internet, <br class="md:hidden" /> curated by people like you.</span>
           </h2>
           <p class="mb-10">
             <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
@@ -103,8 +121,10 @@
           </p>
           <p class="text-xs text-orange-500 uppercase tracking-wider font-medium">
             <span>Join</span>
-            {#key count}
-              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
+            {#key curatorsCount}
+              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
+                {printCuratorsCount}
+              </span>
             {/key}
             <span>curators today</span>
           </p>

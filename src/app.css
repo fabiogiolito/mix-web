@@ -39,7 +39,13 @@ body {
 /* BUTTONS */
 
 .btn {
-  @apply bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium;
+  @apply bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
+  @apply hover:scale-105;
+  @apply focus:outline-orange-500;
+}
+
+.btn:active {
+  @apply hover:scale-100;
 }
 
 .btn-square {

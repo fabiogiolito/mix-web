@@ -48,10 +48,10 @@
     <span class="flex-1" />
 
     <div class="flex space-x-2">
-      <a href="/" class="btn btn-square">
+      <a href="https://twitter.com/getmixapp" class="btn btn-square" target="_blank">
         <img class="w-4" src="icon_twitter_white.svg" alt="Twitter" />
       </a>
-      <a href="/" class="btn btn-square">
+      <a href="https://www.instagram.com/getmixapp/" class="btn btn-square" target="_blank">
         <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
       </a>
     </div>

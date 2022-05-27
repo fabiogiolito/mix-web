@@ -102,10 +102,10 @@
       <div class="relative">
 
         <div class="relative z-10 text-center">
-          <h1 class="text-6xl font-bold mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
+          <h1 class="text-6xl font-semibold mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
             Expand <br /> your mind
           </h1>
-          <h2 class="text-xl font-light leading-tight mb-10 2xl:text-2xl opacity-50">
+          <h2 class="text-xl leading-tight mb-10 2xl:text-2xl opacity-50">
             <span>The coolest</span>
             {#key currentContentIndex}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>

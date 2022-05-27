@@ -2,6 +2,10 @@
   import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
+  const IOS_DOWNLOAD_URL = "https://apps.apple.com/pt/app/mix-rediscover-the-internet/id1092817691?l=en";
+  const TWITTER_URL = "https://twitter.com/getmixapp";
+  const INSTAGRAM_URL = "https://www.instagram.com/getmixapp/";
+
   let timeout; // Reference to clear timeouts on destroy
 
   // Number of curators on platform
@@ -41,6 +45,7 @@
   onDestroy(() => {
     clearTimeout(timeout);
   });
+
 </script>
 
 <svelte:head>
@@ -55,10 +60,10 @@
     <span class="flex-1" />
 
     <div class="flex space-x-2">
-      <a href="https://twitter.com/getmixapp" class="btn btn-square" target="_blank">
+      <a href={TWITTER_URL} class="btn btn-square" target="_blank">
         <img class="w-4" src="icon_twitter_white.svg" alt="Twitter" />
       </a>
-      <a href="https://www.instagram.com/getmixapp/" class="btn btn-square" target="_blank">
+      <a href={INSTAGRAM_URL} class="btn btn-square" target="_blank">
         <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
       </a>
     </div>
@@ -82,14 +87,16 @@
         <div class="relative z-10 text-center">
           <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
           <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
-          <p class="text-orange-500 mb-6">
+          <p class="text-orange-500 mb-8">
             <span>Join</span>
             {#key count}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
             {/key}
             <span>curators today</span>
           </p>
-          <button class="btn btn-primary btn-dot">Get the Mix App</button>
+          <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
+            Get the Mix App
+          </a>
         </div>
 
         <!-- Text shadows -->

@@ -55,7 +55,7 @@ body {
   /* BUTTONS */
 
   .btn {
-    @apply inline-block bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
+    @apply inline-block text-center bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
     @apply hover:scale-105;
     @apply focus:outline-orange-500;
   }
@@ -70,6 +70,10 @@ body {
 
   .btn-primary {
     @apply bg-white text-black;
+  }
+
+  .btn-secondary {
+    @apply bg-orange-500 bg-opacity-20 text-orange-600;
   }
 
   .btn-dot::before {

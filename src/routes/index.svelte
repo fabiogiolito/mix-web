@@ -2,13 +2,16 @@
   import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
-  const IOS_DOWNLOAD_URL = "https://apps.apple.com/pt/app/mix-rediscover-the-internet/id1092817691?l=en";
+  const IOS_DOWNLOAD_URL = "https://apps.apple.com/pt/app/mix-rediscover-the-internet/id1092817691";
   const TWITTER_URL = "https://twitter.com/getmixapp";
   const INSTAGRAM_URL = "https://www.instagram.com/getmixapp/";
 
+  // Toggle QR Code
+  let QRCodeVisible = false;
+
   // Flip through content types
   let contentTypeInterval;
-  let contentList = [ "content", "images", "videos", "articles", "gifs", "memes", "designs", "fashion", "puppies" ];
+  let contentList = [ "stuff", "images", "videos", "articles", "gifs", "memes", "designs", "fashion" ];
   let currentContentIndex = 0;
   $: printContent = contentList[currentContentIndex];
 
@@ -39,6 +42,10 @@
     }, seconds * 1000);
   }
 
+  function handleToggleQRCode() {
+    QRCodeVisible = !QRCodeVisible;
+  }
+
   onMount(() => {
     // Initiate content type update
     contentTypeInterval = setInterval(() => {
@@ -66,21 +73,6 @@
 
 <div class="min-h-available md:min-h-screen flex flex-col">
 
-  <!-- Nav -->
-  <!-- <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">
-    <img src="logo_white.svg" alt="Mix" />
-    <span class="flex-1" />
-
-    <div class="flex space-x-2">
-      <a href={TWITTER_URL} class="btn btn-square" target="_blank">
-        <img class="w-4" src="icon_twitter_white.svg" alt="Twitter" />
-      </a>
-      <a href={INSTAGRAM_URL} class="btn btn-square" target="_blank">
-        <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
-      </a>
-    </div>
-  </div> -->
-
   <!-- Centered Mix logo nag -->
   <div class="shrink-0 container mx-auto relative z-10 flex items-center justify-center px-6 h-20">
     <img src="logo_white.svg" alt="Mix" />
@@ -101,34 +93,59 @@
     <div class="relative px-6 pt-24">
       <div class="relative">
 
-        <div class="relative z-10 text-center">
-          <h1 class="text-6xl font-semibold mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
-            Expand <br /> your mind
-          </h1>
-          <h2 class="text-xl leading-tight mb-10 2xl:text-2xl opacity-50">
-            <span>The coolest</span>
-            {#key currentContentIndex}
-              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
-                {printContent}
-              </span>
-            {/key}
-            <span>on the internet, <br class="md:hidden" /> curated by people like you.</span>
-          </h2>
-          <p class="mb-10">
-            <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
-              Get the Mix App
-            </a>
-          </p>
-          <p class="text-xs text-orange-500 uppercase tracking-wider font-medium">
-            <span>Join</span>
-            {#key curatorsCount}
-              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
-                {printCuratorsCount}
-              </span>
-            {/key}
-            <span>curators today</span>
-          </p>
-        </div>
+        {#if QRCodeVisible}
+          <!-- Qr code -->
+          <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
+            <div class="bg-white rounded-xl p-4 md:p-6 mb-4 text-black text-center">
+              <a href={IOS_DOWNLOAD_URL} target="_blank">
+                <img class="mx-auto w-56 mb-2" src="/qr_ios.png" alt="Download app" />
+              </a>
+              <p class="font-medium text-lg text-orange-500">Scan on iOS to install</p>
+            </div>
+            <div class="space-y-2">
+              <a href={IOS_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full" on:click={handleToggleQRCode}>
+                View on App Store
+              </a>
+              <button class="btn block w-full" on:click={handleToggleQRCode}>Done</button>
+            </div>
+          </div>
+
+        {:else}
+
+          <div in:fly={{ y: -40, duration: 200 }} class="relative z-10 text-center">
+            <h1 class="text-6xl font-semibold tracking-tight mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
+              Expand <br /> your mind
+            </h1>
+            <h2 class="text-lg lg:text-xl 2xl:text-2xl leading-tight mb-10 opacity-50">
+              <span>The coolest</span>
+              {#key currentContentIndex}
+                <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
+                  {printContent}
+                </span>
+              {/key}
+              <span>on the internet, <br class="md:hidden" /> curated by people like you.</span>
+            </h2>
+
+            <!-- Install button -->
+            <p class="mb-8">
+              <button on:click={handleToggleQRCode} href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
+                Get the Mix App
+              </button>
+            </p>
+
+            <!-- Curators count -->
+            <p class="text-xs text-orange-500 uppercase tracking-wider font-medium">
+              <span>Join</span>
+              {#key curatorsCount}
+                <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
+                  {printCuratorsCount}
+                </span>
+              {/key}
+              <span>curators today</span>
+            </p>
+          </div>
+
+        {/if}
 
         <!-- Text shadows -->
         <span class="absolute top-0 inset-x-0 h-24 bg-black blur-2xl" /> <!-- stronger behind "explore" -->

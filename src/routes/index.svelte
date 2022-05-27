@@ -22,7 +22,9 @@
 
   // Get a fake number of curators
   function getCuratorsCount() {
-    return Math.floor(new Date().getTime() / 1000) - 1653579588
+    // Freeze curators count for now
+    return 15743;
+    // return Math.floor(new Date().getTime() / 1000) - 1653579588
   }
 
   // Recursive timeout creation with random duration
@@ -89,27 +91,12 @@
       </video>
     </div>
 
-    <!-- Text -->
+    <!-- Text content area -->
     <div class="relative px-6 pt-24">
       <div class="relative">
 
-        {#if QRCodeVisible}
-          <!-- Qr code -->
-          <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
-            <a href={IOS_DOWNLOAD_URL} target="_blank" class="inline-block bg-white rounded-xl p-4 pb-5 md:p-6 mb-4 text-black text-center">
-              <img class="mx-auto w-56 h-56 mb-2" src="/qr_ios.png" alt="Download app" />
-              <span class="block font-medium text-lg">Scan to install</span>
-            </a>
-            <div class="space-y-2">
-              <a href={IOS_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full" on:click={handleToggleQRCode}>
-                iOS App Store
-              </a>
-              <button class="btn block w-full" on:click={handleToggleQRCode}>Done</button>
-            </div>
-          </div>
-
-        {:else}
-
+        <!-- Main text -->
+        {#if !QRCodeVisible}
           <div in:fly={{ y: -40, duration: 200 }} class="relative z-10 text-center">
             <h1 class="text-6xl font-semibold tracking-tight mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
               Expand <br /> your mind
@@ -143,6 +130,20 @@
             </p>
           </div>
 
+        <!-- Qr code visible -->
+        {:else}
+          <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
+            <a href={IOS_DOWNLOAD_URL} target="_blank" class="inline-block bg-white rounded-xl p-4 pb-5 md:p-6 mb-4 text-black text-center">
+              <img class="mx-auto w-56 h-56 mb-2" src="/qr_ios.png" alt="Download app" />
+              <span class="block font-medium text-lg">Scan to install</span>
+            </a>
+            <div class="space-y-2">
+              <a href={IOS_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full" on:click={handleToggleQRCode}>
+                iOS App Store
+              </a>
+              <button class="btn block w-full" on:click={handleToggleQRCode}>Done</button>
+            </div>
+          </div>
         {/if}
 
         <!-- Text shadows -->

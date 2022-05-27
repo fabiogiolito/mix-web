@@ -96,15 +96,13 @@
         {#if QRCodeVisible}
           <!-- Qr code -->
           <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
-            <div class="bg-white rounded-xl p-4 md:p-6 mb-4 text-black text-center">
-              <a href={IOS_DOWNLOAD_URL} target="_blank">
-                <img class="mx-auto w-56 mb-2" src="/qr_ios.png" alt="Download app" />
-              </a>
-              <p class="font-medium text-lg text-orange-500">Scan on iOS to install</p>
-            </div>
+            <a href={IOS_DOWNLOAD_URL} target="_blank" class="inline-block bg-white rounded-xl p-4 pb-5 md:p-6 mb-4 text-black text-center">
+              <img class="mx-auto w-56 h-56 mb-2" src="/qr_ios.png" alt="Download app" />
+              <span class="block font-medium text-lg">Scan to install</span>
+            </a>
             <div class="space-y-2">
               <a href={IOS_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full" on:click={handleToggleQRCode}>
-                View on App Store
+                iOS App Store
               </a>
               <button class="btn block w-full" on:click={handleToggleQRCode}>Done</button>
             </div>

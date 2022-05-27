@@ -2,9 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
-  const IOS_DOWNLOAD_URL = "https://apps.apple.com/pt/app/mix-rediscover-the-internet/id1092817691";
-  const TWITTER_URL = "https://twitter.com/getmixapp";
-  const INSTAGRAM_URL = "https://www.instagram.com/getmixapp/";
+  import { IOS_DOWNLOAD_URL, TWITTER_URL, INSTAGRAM_URL } from "$lib/consts";
 
   // Toggle QR Code
   let QRCodeVisible = false;

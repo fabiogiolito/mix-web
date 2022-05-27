@@ -41,10 +41,10 @@
   <title>Mix - Expand your Mind</title>
 </svelte:head>
 
-<div class="container mx-auto min-h-screen flex flex-col">
+<div class="h-1 min-h-screen flex flex-col">
 
   <!-- Nav -->
-  <div class="relative z-10 flex items-center px-6 h-16">
+  <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">
     <img src="logo_white.svg" alt="Mix" />
     <span class="flex-1" />
 
@@ -58,35 +58,38 @@
     </div>
   </div>
 
-  <div class="flex-1 lg:grid lg:place-items-center">
+  <!-- Content -->
+  <div class="flex-1 flex flex-col items-center justify-center pb-24">
 
     <!-- Video -->
-    <div class="overflow-hidden max-h-screen -mb-24 sm:-mb-48 md:-mb-80 lg:mb-0 lg:absolute lg:top-0 lg:left-0 lg:w-full lg:h-full">
-      <video muted autoplay loop class="scale-150 mx-auto">
+    <div class="overflow-hidden absolute inset-0 grid place-items-center">
+      <!-- <img src="video.png" alt="video" class="mx-auto -mt-[30vh]" /> -->
+      <video muted autoplay loop class="mx-auto -mt-[30vh] scale-125">
         <source src="/carousel.webm" type="video/webm">
       </video>
     </div>
 
-    <!-- Text content -->
-    <div class="relative px-6 lg:pt-32 pb-24">
+    <!-- Text -->
+    <div class="relative px-6 pt-24">
+      <div class="relative">
+        <div class="relative z-10 text-center">
+          <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
+          <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
+          <p class="text-orange-500 mb-6">
+            <span>Join</span>
+            {#key count}
+              <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
+            {/key}
+            <span>curators today</span>
+          </p>
 
-      <div class="relative z-10 text-center">
-        <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
-        <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
-        <p class="text-orange-500 mb-6">
-          <span>Join</span>
-          {#key count}
-            <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
-          {/key}
-          <span>curators today</span>
-        </p>
-
-        <button class="btn btn-primary btn-dot">Get the Mix App</button>
+          <button class="btn btn-primary btn-dot">Get the Mix App</button>
+        </div>
+        <!-- Text shadow -->
+        <span class="absolute inset-0 bg-black blur-2xl opacity-80" />
       </div>
-
-      <!-- Text shadow -->
-      <span class="absolute inset-0 bg-black blur-3xl lg:opacity-80" />
     </div>
+
   </div>
 
 </div>

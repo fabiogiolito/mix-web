@@ -40,7 +40,7 @@
   <title>Mix - Expand your Mind</title>
 </svelte:head>
 
-<div class="h-1 min-h-available flex flex-col">
+<div class="min-h-available md:min-h-screen flex flex-col">
 
   <!-- Nav -->
   <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">

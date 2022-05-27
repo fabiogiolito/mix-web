@@ -71,6 +71,7 @@
     <!-- Text -->
     <div class="relative px-6 pt-24">
       <div class="relative">
+
         <div class="relative z-10 text-center">
           <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
           <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
@@ -81,11 +82,13 @@
             {/key}
             <span>curators today</span>
           </p>
-
           <button class="btn btn-primary btn-dot">Get the Mix App</button>
         </div>
-        <!-- Text shadow -->
-        <span class="absolute inset-0 bg-black blur-2xl opacity-80" />
+
+        <!-- Text shadows -->
+        <span class="absolute top-0 inset-x-0 h-24 bg-black blur-2xl" /> <!-- stronger behind "explore" -->
+        <span class="absolute inset-0 bg-black blur-2xl opacity-50" /> <!-- lighter behind entire text-->
+
       </div>
     </div>
 

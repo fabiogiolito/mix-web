@@ -58,11 +58,11 @@
   </div>
 
   <!-- Content -->
-  <div class="flex-1 flex flex-col items-center justify-center pb-24">
+  <div class="flex-1 flex flex-col items-center justify-center md:pb-24">
 
     <!-- Video -->
     <div class="overflow-hidden absolute inset-0 grid place-items-center">
-      <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-125">
+      <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-[2] md:scale-125">
         <source src="/carousel.webm" type="video/webm">
         <source src="/carousel.mp4" type="video/mp4">
       </video>

@@ -55,7 +55,7 @@ body {
   /* BUTTONS */
 
   .btn {
-    @apply bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
+    @apply inline-block bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
     @apply hover:scale-105;
     @apply focus:outline-orange-500;
   }
@@ -89,101 +89,152 @@ body {
   /* ---------------------------- */
   /* FONTS */
 
+  /* 
+  
+  Hairline
+  Ultrathin
+  Thin
+  Light
+  Book
+  Medium
+  Semibold
+  Bold
+  Extrabold
+  Black
+  */
+
+  /* font-thin - 100 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Thin.woff2');
+    src: url('/fonts/SharpSansDispNo1-Ultrathin.woff2');
     font-weight: 100;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-ThinItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-UltrathinIt.woff2');
     font-weight: 100;
     font-style: italic;
   }
 
+  /* font-extralight - 200 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Light.woff2');
+    src: url('/fonts/SharpSansDispNo1-Thin.woff2');
     font-weight: 200;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-LightItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-ThinIt.woff2');
     font-weight: 200;
     font-style: italic;
   }
 
+  /* font-light - 300 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Book.woff2');
+    src: url('/fonts/SharpSansDispNo1-Light.woff2');
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-BookItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-LightIt.woff2');
     font-weight: 300;
     font-style: italic;
   }
 
+  /* font-normal - 400 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Medium.woff2');
+    src: url('/fonts/SharpSansDispNo1-Book.woff2');
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-MediumItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-BookIt.woff2');
     font-weight: 400;
     font-style: italic;
   }
 
+  /* font-medium - 500 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Semibold.woff2');
+    src: url('/fonts/SharpSansDispNo1-Medium.woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Sharp Sans";
+    src: url('/fonts/SharpSansDispNo1-MediumIt.woff2');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* font-semibold - 600 */
+  @font-face {
+    font-family: "Sharp Sans";
+    src: url('/fonts/SharpSansDispNo1-Semibold.woff2');
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-SemiboldItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-SemiboldIt.woff2');
     font-weight: 500;
     font-style: italic;
   }
 
+  /* font-bold - 700 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Bold.woff2');
+    src: url('/fonts/SharpSansDispNo1-Bold.woff2');
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-BoldItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-BoldIt.woff2');
     font-weight: 600;
     font-style: italic;
   }
 
+  /* font-extrabold - 800 */
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-Extrabold.woff2');
+    src: url('/fonts/SharpSansDispNo1-Extrabold.woff2');
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Sharp Sans";
-    src: url('/fonts/SharpSans-ExtraboldItalic.woff2');
+    src: url('/fonts/SharpSansDispNo1-ExtraboldIt.woff2');
     font-weight: 700;
+    font-style: italic;
+  }
+
+  /* font-black - 900 */
+  @font-face {
+    font-family: "Sharp Sans";
+    src: url('/fonts/SharpSansDispNo1-Black.woff2');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Sharp Sans";
+    src: url('/fonts/SharpSansDispNo1-BlackIt.woff2');
+    font-weight: 900;
     font-style: italic;
   }
 

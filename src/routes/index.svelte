@@ -90,14 +90,18 @@
       <div class="relative">
 
         <div class="relative z-10 text-center">
-          <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
-          <h2 class="text-xl font-light leading-tight mb-20 2xl:text-2xl opacity-50">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
+          <h1 class="text-6xl font-bold mb-8 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">
+            Expand <br /> your mind
+          </h1>
+          <h2 class="text-xl font-light leading-tight mb-10 2xl:text-2xl opacity-50">
+            The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.
+          </h2>
           <p class="mb-10">
             <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
               Get the Mix App
             </a>
           </p>
-          <p class="text-xs text-orange-500 uppercase">
+          <p class="text-xs text-orange-500 uppercase tracking-wider font-medium">
             <span>Join</span>
             {#key count}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
@@ -116,7 +120,7 @@
   </div>
 
   <!-- Footer -->
-  <div class="absolute inset-x-0 top-full md:relative px-6 md:h-16 z-10 bg-gradient-to-b from-[rgba(255,255,255,0.05)] md:bg-none">
+  <div class="absolute inset-x-0 top-full md:relative px-6 md:h-14 z-10 bg-gradient-to-b from-[rgba(255,255,255,0.05)] md:bg-none">
     <div class="container mx-auto flex flex-col py-8 md:py-0 space-y-6 md:flex-row md:space-x-8 md:space-y-0 items-center">
 
       <div class="shrink-0 flex space-x-4 items-center pb-4 md:pb-0">
@@ -136,7 +140,9 @@
 
       <span class="hidden md:block flex-1" />
 
-      <span class="text-sm opacity-25">© 2022 - Mix is an Expa company</span>
+      <span class="text-sm opacity-25">
+        © 2022 - Mix is an <a class="btn btn-link" href="https://expa.com/" target="_blank">Expa</a> company
+      </span>
     </div>
   </div>
 

@@ -1,16 +1,23 @@
 <script>
-  import { onDestroy, onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
-  let count = Math.floor(new Date().getTime() / 1000) - 1653579588;
+  let timeout; // Reference to clear timeouts on destroy
 
+  // Number of curators on platform
+  let count = getCuratorsCount();
+
+  // Printable version of count with commas (reactive)
   $: printCount = count.toLocaleString("en-US");
 
-  let timeout;
+  // Get a fake number of curators
+  function getCuratorsCount() {
+    return Math.floor(new Date().getTime() / 1000) - 1653579588
+  }
 
-  // Recursive timeout with random duration
+  // Recursive timeout creation with random duration
   function createTimeout(callback) {
-    // Get random seconds
+    // Get random seconds between 3 and 10
     let seconds = Math.floor(Math.random() * (10 - 3 + 1)) + 3
 
     // Create timeout
@@ -27,7 +34,7 @@
 
   onMount(() => {
     createTimeout(() => {
-      count = Math.floor(new Date().getTime() / 1000) - 1653579588;
+      count = getCuratorsCount();
     });
   });
 

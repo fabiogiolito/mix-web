@@ -55,7 +55,7 @@
 <div class="min-h-available md:min-h-screen flex flex-col">
 
   <!-- Nav -->
-  <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">
+  <!-- <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">
     <img src="logo_white.svg" alt="Mix" />
     <span class="flex-1" />
 
@@ -67,10 +67,15 @@
         <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
       </a>
     </div>
+  </div> -->
+
+  <!-- Centered Mix logo nag -->
+  <div class="shrink-0 container mx-auto relative z-10 flex items-center justify-center px-6 h-20">
+    <img src="logo_white.svg" alt="Mix" />
   </div>
 
   <!-- Content -->
-  <div class="flex-1 flex flex-col items-center justify-center md:pb-24">
+  <div class="flex-1 flex flex-col items-center justify-center py-10">
 
     <!-- Video -->
     <div class="overflow-hidden absolute inset-0 grid place-items-center">
@@ -86,17 +91,19 @@
 
         <div class="relative z-10 text-center">
           <h1 class="text-6xl font-bold mb-6 md:text-7xl lg:text-8xl 2xl:text-[120px] 2xl:mb-12">Expand <br /> your mind</h1>
-          <h2 class="text-xl leading-tight mb-12 2xl:text-2xl">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
-          <p class="text-orange-500 mb-8">
+          <h2 class="text-xl font-light leading-tight mb-20 2xl:text-2xl opacity-50">The coolest stuff on the internet, <br class="md:hidden" /> curated by people like you.</h2>
+          <p class="mb-10">
+            <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
+              Get the Mix App
+            </a>
+          </p>
+          <p class="text-xs text-orange-500 uppercase">
             <span>Join</span>
             {#key count}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>{printCount}</span>
             {/key}
             <span>curators today</span>
           </p>
-          <a href={IOS_DOWNLOAD_URL} class="btn btn-primary btn-dot">
-            Get the Mix App
-          </a>
         </div>
 
         <!-- Text shadows -->
@@ -106,6 +113,31 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- Footer -->
+  <div class="absolute inset-x-0 top-full md:relative px-6 md:h-16 z-10 bg-gradient-to-b from-[rgba(255,255,255,0.05)] md:bg-none">
+    <div class="container mx-auto flex flex-col py-8 md:py-0 space-y-6 md:flex-row md:space-x-8 md:space-y-0 items-center">
+
+      <div class="shrink-0 flex space-x-4 items-center pb-4 md:pb-0">
+        <a href={TWITTER_URL} class="btn btn-square" target="_blank">
+          <img class="w-4" src="icon_twitter_white.svg" alt="Twitter" />
+        </a>
+        <a href={INSTAGRAM_URL} class="btn btn-square" target="_blank">
+          <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
+        </a>
+      </div>
+
+      <div class="flex space-x-8">
+        <a class="btn btn-link text-sm opacity-50" href="/">Contact</a>
+        <a class="btn btn-link text-sm opacity-50" href="/">Terms</a>
+        <a class="btn btn-link text-sm opacity-50" href="/">Privacy</a>
+      </div>
+
+      <span class="hidden md:block flex-1" />
+
+      <span class="text-sm opacity-25">© 2022 - Mix is an Expa company</span>
+    </div>
   </div>
 
 </div>

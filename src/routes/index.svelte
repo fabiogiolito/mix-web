@@ -12,7 +12,6 @@
   function createTimeout(callback) {
     // Get random seconds
     let seconds = Math.floor(Math.random() * (10 - 3 + 1)) + 3
-    console.log(`will run in ${seconds} s`)
 
     // Create timeout
     timeout = setTimeout(() => {
@@ -64,8 +63,9 @@
     <!-- Video -->
     <div class="overflow-hidden absolute inset-0 grid place-items-center">
       <!-- <img src="video.png" alt="video" class="mx-auto -mt-[30vh]" /> -->
-      <video muted autoplay loop class="mx-auto -mt-[30vh] scale-125">
+      <video muted autoplay loop class="mx-auto -mt-[48vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-125">
         <source src="/carousel.webm" type="video/webm">
+        <source src="/carousel.mp4" type="video/mp4">
       </video>
     </div>
 

@@ -40,7 +40,7 @@
   <title>Mix - Expand your Mind</title>
 </svelte:head>
 
-<div class="h-1 min-h-screen flex flex-col">
+<div class="h-1 min-h-available flex flex-col">
 
   <!-- Nav -->
   <div class="shrink-0 container mx-auto relative z-10 flex items-center px-6 h-16">
@@ -62,8 +62,7 @@
 
     <!-- Video -->
     <div class="overflow-hidden absolute inset-0 grid place-items-center">
-      <!-- <img src="video.png" alt="video" class="mx-auto -mt-[30vh]" /> -->
-      <video muted autoplay loop playsinline class="mx-auto -mt-[48vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-125">
+      <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-125">
         <source src="/carousel.webm" type="video/webm">
         <source src="/carousel.mp4" type="video/mp4">
       </video>

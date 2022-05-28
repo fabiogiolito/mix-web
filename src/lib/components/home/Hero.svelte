@@ -10,12 +10,10 @@
   let contentTypeInterval;
   let contentList = [ "stuff", "images", "videos", "articles", "gifs", "memes", "designs", "fashion" ];
   let currentContentIndex = 0;
-  $: printContent = contentList[currentContentIndex];
 
   // ------------------------------------
   // Curator count
   let curatorsCount = getCuratorsCount(); // Number of curators on platform
-  $: printCuratorsCount = curatorsCount.toLocaleString("en-US"); // Printable version of count with commas (reactive)
 
   // ------------------------------------
   // Toggle QR Code
@@ -23,7 +21,7 @@
 
 
   // =====================================
-  // Functions
+  // FUNCTIONS
 
   function getCuratorsCount() {
     const DEFAULT_CURATOR_COUNT = 12691;
@@ -37,7 +35,7 @@
   }
 
   // =====================================
-  // Load
+  // LIFETIME
 
   onMount(() => {
     contentTypeInterval = setInterval(() => {
@@ -75,7 +73,7 @@
             <span>The coolest</span>
             {#key currentContentIndex}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
-                {printContent}
+                {contentList[currentContentIndex]}
               </span>
             {/key}
             <span>on the internet, <br class="md:hidden" /> curated by people like you.</span>
@@ -93,7 +91,7 @@
             <span>Join</span>
             {#key curatorsCount}
               <span class="inline-block relative proportional-nums" in:fly={{ y: 10, duration: 150 }}>
-                {printCuratorsCount}
+                {curatorsCount.toLocaleString("en-US")}
               </span>
             {/key}
             <span>curators today</span>

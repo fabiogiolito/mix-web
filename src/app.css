@@ -55,7 +55,7 @@ body {
   /* BUTTONS */
 
   .btn {
-    @apply inline-block text-center bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
+    @apply shrink-0 inline-block text-center bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
     @apply hover:scale-105;
     @apply focus:outline-orange-500;
   }
@@ -83,6 +83,18 @@ body {
 
   .btn-link {
     @apply px-1 py-0 bg-transparent rounded-none;
+  }
+
+  /* ---------------------------- */
+  /* TAGS */
+
+  .tag {
+    @apply shrink-0 inline-block text-center bg-white bg-opacity-5 text-white text-opacity-75 text-xs p-1 px-2 rounded-full;
+  }
+
+  .tag::before {
+    content: "#";
+    @apply inline-block mr-1 text-xs opacity-50;
   }
 
 }

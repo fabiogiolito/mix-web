@@ -3,7 +3,7 @@
 </script>
 
 <!-- Footer -->
-<div class="absolute inset-x-0 top-full md:relative px-6 md:h-14 z-10 bg-gradient-to-b from-[rgba(255,255,255,0.05)] md:bg-none">
+<div class="relative z-10 container mx-auto px-6 md:h-14 bg-gradient-to-b from-[rgba(255,255,255,0.05)] md:bg-none">
   <div class="container mx-auto flex flex-col py-8 md:py-0 space-y-6 md:flex-row md:space-x-8 md:space-y-0 items-center">
 
     <div class="shrink-0 flex space-x-4 items-center pb-4 md:pb-0">

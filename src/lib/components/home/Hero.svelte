@@ -2,7 +2,8 @@
   import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
-  import { DOWNLOAD_URL, IOS_DOWNLOAD_URL, ANDROID_DOWNLOAD_URL, TWITTER_URL, INSTAGRAM_URL } from "$lib/consts";
+  import ButtonGetApp from "$lib/components/home/ButtonGetApp.svelte";
+  import QRCode from "$lib/components/home/QRCode.svelte";
 
 
   // ------------------------------------
@@ -79,12 +80,7 @@
             <span>on the internet, <br class="md:hidden" /> curated by people like you.</span>
           </h2>
 
-          <!-- Install button -->
-          <p class="mb-8">
-            <button on:click={handleToggleQRCode} class="btn btn-primary btn-dot">
-              Get the Mix App
-            </button>
-          </p>
+          <ButtonGetApp on:showQRCode={handleToggleQRCode} />
 
           <!-- Curators count -->
           <p class="text-xs text-orange-500 uppercase tracking-wider font-medium">
@@ -100,21 +96,7 @@
 
       <!-- Qr code visible -->
       {:else}
-        <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
-          <a href={DOWNLOAD_URL} target="_blank" class="inline-block bg-white rounded-xl p-4 pb-5 md:p-6 mb-4 text-black text-center">
-            <img class="mx-auto w-56 h-56 mb-2" src="/qr_download.png" alt="Download app" />
-            <span class="block font-medium text-lg">Scan to install</span>
-          </a>
-          <div class="space-y-2">
-            <a href={IOS_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full">
-              Install on iOS
-            </a>
-            <a href={ANDROID_DOWNLOAD_URL} target="_blank" class="btn btn-secondary block w-full">
-              Install on Android
-            </a>
-            <button class="btn block w-full" on:click={handleToggleQRCode}>Done</button>
-          </div>
-        </div>
+        <QRCode on:close={handleToggleQRCode} />
       {/if}
 
       <!-- Text shadows -->

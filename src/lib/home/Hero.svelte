@@ -2,8 +2,8 @@
   import { onMount, onDestroy } from "svelte";
   import { fly } from "svelte/transition"
 
-  import ButtonGetApp from "$lib/components/home/ButtonGetApp.svelte";
-  import QRCode from "$lib/components/home/QRCode.svelte";
+  import ButtonGetApp from "$lib/home/ButtonGetApp.svelte";
+  import QRCode from "$lib/home/QRCode.svelte";
 
 
   // ------------------------------------

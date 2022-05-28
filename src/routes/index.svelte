@@ -1,8 +1,8 @@
 <script>
-  import Nav from "$lib/components/home/Nav.svelte";
-  import Hero from "$lib/components/home/Hero.svelte";
-  import CuratorsList from "$lib/components/home/CuratorsList.svelte";
-  import Footer from "$lib/components/home/Footer.svelte";
+  import Nav from "$lib/home/Nav.svelte";
+  import Hero from "$lib/home/Hero.svelte";
+  import CuratorsList from "$lib/home/CuratorsList.svelte";
+  import Footer from "$lib/home/Footer.svelte";
 </script>
 
 <svelte:head>

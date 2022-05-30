@@ -55,7 +55,7 @@ body {
   /* BUTTONS */
 
   .btn {
-    @apply shrink-0 inline-block text-center bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
+    @apply relative z-10 shrink-0 inline-block text-center bg-white bg-opacity-10 p-3 px-6 rounded-full font-medium transition-transform;
     @apply hover:scale-105;
     @apply focus:outline-orange-500;
   }

@@ -1,5 +1,8 @@
 <script>
   import { TWITTER_URL, INSTAGRAM_URL } from "$lib/consts";
+
+  import IconInstagram from "$lib/icons/IconInstagram.svelte";
+  import IconTwitter from "$lib/icons/IconTwitter.svelte";
 </script>
 
 <!-- Footer -->
@@ -8,17 +11,17 @@
 
     <div class="shrink-0 flex space-x-4 items-center pb-4 md:pb-0">
       <a href={TWITTER_URL} class="btn btn-square" target="_blank">
-        <img class="w-4" src="icon_twitter_white.svg" alt="Twitter" />
+        <IconTwitter class="w-4" />
       </a>
       <a href={INSTAGRAM_URL} class="btn btn-square" target="_blank">
-        <img class="w-4" src="icon_instagram_white.svg" alt="Instagram" />
+        <IconInstagram class="w-4" />
       </a>
     </div>
 
     <div class="flex space-x-8">
-      <a class="btn btn-link text-sm opacity-50" href="/">Contact</a>
-      <a class="btn btn-link text-sm opacity-50" href="/">Terms</a>
-      <a class="btn btn-link text-sm opacity-50" href="/">Privacy</a>
+      <a class="btn btn-link text-sm opacity-50" href="mailto:support@mix.com">Contact</a>
+      <a class="btn btn-link text-sm opacity-50" href="/tos">Terms</a>
+      <a class="btn btn-link text-sm opacity-50" href="/privacy">Privacy</a>
     </div>
 
     <span class="hidden md:block flex-1" />

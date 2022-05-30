@@ -3,6 +3,7 @@
   import UserFollowButton from "$lib/user/UserFollowButton.svelte";
 
   export let user;
+  export let showLikes;
 
 </script>
 
@@ -17,7 +18,9 @@
     <div class="flex-1 flex flex-col">
       <p class="font-medium">{user.name}</p>
       <p class="text-sm truncate opacity-50 mb-1">@{user.username}</p>
-      <p class="text-xs truncate opacity-40">{user.likesCount.toLocaleString("en-US")} Likes</p>
+      {#if showLikes}
+        <p class="text-xs truncate opacity-40">{user.likesCount.toLocaleString("en-US")} Likes</p>
+      {/if}
     </div>
 
     <!-- Follow button -->

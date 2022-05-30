@@ -22,10 +22,11 @@
 </script>
 
 <div class="min-h-available md:min-h-screen">
-  <div class="container mx-auto px-6">
-
+  <div class="container mx-auto px-6 md:p-8 lg:p-16 xl:p-24">
     <UserHeader {user} />
-    <ContentGrid images={user?.topLikes} class="grid-cols-5 gap-4" />
-
   </div>
+  <ContentGrid
+    images={user?.topLikes}
+    class="grid-cols-2 gap-2 p-2 md:grid-cols-3 lg:grid-cols-5 lg:gap-4 lg:p-4 2xl:grid-cols-6"
+  />
 </div>

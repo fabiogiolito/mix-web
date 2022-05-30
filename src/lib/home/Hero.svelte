@@ -53,7 +53,7 @@
 <div class="flex-1 flex flex-col items-center justify-center py-10">
 
   <!-- Video -->
-  <div class="overflow-hidden absolute inset-0 grid place-items-center">
+  <div class="overflow-hidden absolute inset-0 grid place-items-center transition-all {QRCodeVisible ? 'blur-lg' : ''}">
     <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-[2] md:scale-125">
       <source src="/carousel.webm" type="video/webm">
       <source src="/carousel.mp4" type="video/mp4">

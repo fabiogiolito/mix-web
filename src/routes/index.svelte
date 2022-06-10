@@ -14,10 +14,10 @@
   <Hero />
 
   <!-- Wrap Footer here for positioning while no other sections -->
-  <div class="absolute inset-x-0 top-full lg:static">
+  <!-- <div class="absolute inset-x-0 top-full lg:static">
     <Footer />
-  </div>
+  </div> -->
 </div>
 
-<!-- <CuratorsList /> -->
-<!-- <Footer /> -->
+<CuratorsList />
+<Footer />

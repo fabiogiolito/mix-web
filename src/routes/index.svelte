@@ -9,14 +9,9 @@
   <title>Mix - Expand your Mind</title>
 </svelte:head>
 
-<div class="min-h-available md:min-h-screen flex flex-col">
+<div class="min-h-[85vh] flex flex-col overflow-hidden">
   <Nav />
   <Hero />
-
-  <!-- Wrap Footer here for positioning while no other sections -->
-  <!-- <div class="absolute inset-x-0 top-full lg:static">
-    <Footer />
-  </div> -->
 </div>
 
 <CuratorsList />

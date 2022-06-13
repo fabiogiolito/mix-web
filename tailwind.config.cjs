@@ -7,6 +7,10 @@ const config = {
     extend: {
       fontFamily: {
         'sans': ['Sharp Sans', ...defaultTheme.fontFamily.sans],
+      },
+      screens: {
+        '3xl': '1792px',
+        '4xl': '2048px',
       }
     },
   },

@@ -89,7 +89,7 @@ body {
   /* TAGS */
 
   .tag {
-    @apply shrink-0 inline-block text-center bg-white bg-opacity-5 text-white text-opacity-75 text-xs p-1 px-2 rounded-full;
+    @apply font-normal shrink-0 inline-block text-center bg-white bg-opacity-5 text-white text-opacity-75 text-xs p-1 px-2 rounded-full;
   }
 
   .tag::before {

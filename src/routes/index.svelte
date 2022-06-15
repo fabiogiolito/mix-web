@@ -1,7 +1,7 @@
 <script>
   import Nav from "$lib/home/Nav.svelte";
   import Hero from "$lib/home/Hero.svelte";
-  import CuratorsList from "$lib/home/CuratorsList.svelte";
+  import CuratorsGrid from "$lib/home/CuratorsGrid.svelte";
   import Footer from "$lib/home/Footer.svelte";
 </script>
 
@@ -14,5 +14,5 @@
   <Hero />
 </div>
 
-<CuratorsList />
+<CuratorsGrid />
 <Footer />

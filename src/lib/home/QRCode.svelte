@@ -1,15 +1,30 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { fly } from "svelte/transition";
-  import { APP_DOWNLOAD_URL, IOS_DOWNLOAD_URL, ANDROID_DOWNLOAD_URL } from "$lib/consts";
+  import { IOS_DOWNLOAD_URL, ANDROID_DOWNLOAD_URL } from "$lib/consts";
 
   import IconApple from "$lib/icons/IconApple.svelte";
   import IconAndroid from "$lib/icons/IconAndroid.svelte";
-  import IconX from "$lib/icons/IconX.svelte";
 
   const dispatch = createEventDispatcher();
 
+  let didSendSMS = false;
+
+  function handleSendSMS() {
+    didSendSMS = true;
+  }
+
+  function handleKeyUp(e) {
+    if (e.key == "Escape") closeQRCode();
+  }
+
+  function closeQRCode() {
+    dispatch('close');
+  }
+
 </script>
+
+<svelte:body on:keyup={handleKeyUp} />
 
 <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
 
@@ -24,9 +39,18 @@
     <div class="w-64 bg-white bg-opacity-10 rounded-b-xl md:rounded-tl-none md:rounded-r-xl p-6 text-center flex flex-col items-center justify-center">
 
       <div class="mt-2 mb-7">
-        <p class="leading-tight mb-4">Get a text message to download the app</p>
-        <input class="btn w-full mb-2" type="text" placeholder="(555) 123-4567" />
-        <button class="btn btn-secondary w-full">Send SMS</button>
+
+        {#if !didSendSMS}
+          <p class="leading-tight mb-4">Get a text message to download the app</p>
+          <input class="btn w-full mb-2" type="text" placeholder="(555) 123-4567" />
+          <button on:click={handleSendSMS} class="btn btn-secondary w-full">Send SMS</button>
+        {:else}
+          <div in:fly={{ y: 16, duration: 200 }} class="mt-12 mb-14">
+            <p class="text-lg">SMS Sent!</p>
+            <p class="opacity-50">Check your phone.</p>
+          </div>
+        {/if}
+
       </div>
 
       <div class="flex space-x-4">
@@ -43,7 +67,7 @@
   </div>
 
   <div class="text-center">
-    <button class="btn" on:click={() => dispatch('close')}>
+    <button class="btn" on:click={closeQRCode}>
       Done
     </button>
   </div>

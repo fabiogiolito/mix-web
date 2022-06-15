@@ -85,6 +85,13 @@ body {
     @apply px-1 py-0 bg-transparent rounded-none;
   }
 
+  .btn-icon {
+    @apply flex space-x-2 items-center
+  }
+  .btn-icon svg {
+    @apply -ml-1
+  }
+
   /* ---------------------------- */
   /* TAGS */
 
@@ -104,20 +111,6 @@ body {
 
   /* ---------------------------- */
   /* FONTS */
-
-  /* 
-  
-  Hairline
-  Ultrathin
-  Thin
-  Light
-  Book
-  Medium
-  Semibold
-  Bold
-  Extrabold
-  Black
-  */
 
   /* font-thin - 100 */
   @font-face {

@@ -16,10 +16,10 @@
 
   <div class="flex flex-col md:flex-row relative mb-6">
 
-    <a href={APP_DOWNLOAD_URL} target="_blank" class="w-64 inline-block bg-white rounded-t-xl md:rounded-tr-none md:rounded-l-xl p-4 pb-5 md:p-6 text-black text-center">
+    <div class="w-64 inline-block bg-white rounded-t-xl md:rounded-tr-none md:rounded-l-xl p-4 pb-5 md:p-6 text-black text-center">
       <img class="mx-auto w-full aspect-square mb-2" src="/qr_download.png" alt="Download app" />
       <span class="block font-medium text-lg">Scan to install</span>
-    </a>
+    </div>
 
     <div class="w-64 bg-white bg-opacity-10 rounded-b-xl md:rounded-tl-none md:rounded-r-xl p-6 text-center flex flex-col items-center justify-center">
 

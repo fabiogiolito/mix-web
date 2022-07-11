@@ -36,7 +36,7 @@
       <span class="block font-medium text-lg">Scan to install</span>
     </div>
 
-    <div class="w-64 bg-white bg-opacity-10 rounded-b-xl md:rounded-tl-none md:rounded-r-xl p-6 text-center flex flex-col items-center justify-center">
+    <div class="w-64 bg-white bg-opacity-10 rounded-b-xl md:rounded-l-none md:rounded-r-xl p-6 text-center flex flex-col items-center justify-center">
 
       <div class="mt-2 mb-7">
 

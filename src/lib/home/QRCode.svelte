@@ -42,7 +42,15 @@
 
         {#if !didSendSMS}
           <p class="leading-tight mb-4">Get a text message to download the app</p>
-          <input class="btn w-full mb-2" type="text" placeholder="(555) 123-4567" />
+          <div class="w-full max-w-full">
+            <div class="btn w-full mb-2 p-0 flex focus-within:outline-orange-500">
+              <select class="appearance-none p-3 pl-4 pr-0 bg-transparent text-white focus:outline-none relative top-px">
+                <option>+1</option>
+                <option>+351</option>
+              </select>
+              <input class="w-40 p-3 bg-transparent focus:outline-none relative top-px" type="text" placeholder="(555) 123-4567" />
+            </div>
+          </div>
           <button on:click={handleSendSMS} class="btn btn-secondary w-full">Send SMS</button>
         {:else}
           <div in:fly={{ y: 16, duration: 200 }} class="mt-12 mb-14">

@@ -33,7 +33,7 @@
 <div class="px-2 lg:px-6 pb-40">
   <div class="grid gap-8 md:grid-cols-2 md:gap-4 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-10 3xl:grid-cols-5 4xl:grid-cols-6">
     {#each curators as curator}
-      <UserCard user={curator} showLikes />
+      <UserCard user={curator} showLikes showFollow />
     {/each}
   </div>
 </div>

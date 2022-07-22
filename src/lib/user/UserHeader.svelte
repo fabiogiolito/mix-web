@@ -1,4 +1,6 @@
 <script>
+  import { page } from "$app/stores";
+
   import UserAvatar from "$lib/user/UserAvatar.svelte";
   import UserFollowButton from "$lib/user/UserFollowButton.svelte";
 
@@ -8,7 +10,7 @@
 
 {#if user}
 
-  <div class="p-6 text-center space-y-8">
+  <div class="space-y-8">
     <UserAvatar {user} class="w-40" />
 
     <div class="space-y-2">
@@ -17,13 +19,34 @@
     </div>
 
     <UserFollowButton {user} large />
+
+    <p class="leading-tight opacity-75">
+      Curabitur suscipit lectus lorem, convallis convallis est blandit quis.
+    </p>
+
+    <div class="flex flex-col">
+      <a href="/{user.username}" class="
+        flex space-x-3 items-center px-1 py-3 text-white border-b-2 border-white
+        {$page.url.pathname == `/${user.username}` ? '' : 'border-opacity-10 text-opacity-50 hover:text-opacity-100'}
+      ">
+        <span class="flex-1">Likes</span>
+        <span class="text-sm font-mono">14,518</span>
+      </a>
+      <a href="/{user.username}/following" class="
+        flex space-x-3 items-center px-1 py-3 text-white border-b-2 border-white
+        {$page.url.pathname == `/${user.username}/following` ? '' : 'border-opacity-10 text-opacity-50 hover:text-opacity-100'}
+      ">
+        <span class="flex-1">Following</span>
+        <span class="text-sm font-mono">3</span>
+      </a>
+      <a href="/{user.username}/followers" class="
+        flex space-x-3 items-center px-1 py-3 text-white border-b-2 border-white
+        {$page.url.pathname == `/${user.username}/followers` ? '' : 'border-opacity-10 text-opacity-50 hover:text-opacity-100'}
+      ">
+        <span class="flex-1">Followers</span>
+        <span class="text-sm font-mono">124</span>
+      </a>
+    </div>
   </div>
 
-<!-- Skeleton -->
-{:else}
-  <div class="p-6 text-center flex flex-col items-center justify-center animate-pulse">
-    <UserAvatar class="w-40 mb-8" />
-    <span class="block w-80 h-8 bg-white bg-opacity-10 rounded mb-4" />
-    <span class="block w-40 h-6 bg-white bg-opacity-10 rounded" />
-  </div>
 {/if}

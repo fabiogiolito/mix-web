@@ -1,7 +1,6 @@
 <script>
-  import Nav from "$lib/home/Nav.svelte";
   import Hero from "$lib/home/Hero.svelte";
-  import CuratorsGrid from "$lib/home/CuratorsGrid.svelte";
+  import UserGrid from "$lib/user/UserGrid.svelte";
   import Footer from "$lib/home/Footer.svelte";
 </script>
 
@@ -10,9 +9,8 @@
 </svelte:head>
 
 <div class="min-h-[85vh] flex flex-col overflow-hidden">
-  <Nav />
   <Hero />
 </div>
 
-<CuratorsGrid />
+<UserGrid />
 <Footer />

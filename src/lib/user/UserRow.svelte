@@ -2,17 +2,19 @@
   import UserAvatar from "$lib/user/UserAvatar.svelte";
   import UserFollowButton from "$lib/user/UserFollowButton.svelte";
 
-  export let user;
-  export let showLikes;
+  export let user = undefined;
+  export let linked = false;
+  export let showLikes = false;
+  export let showFollow = false;
 
 </script>
 
 {#if user}
 
-  <div class="flex items-center space-x-4">
+  <svelte:element this={linked ? 'a' : 'div'} href="/{user.username}" class="flex items-center space-x-4">
 
     <!-- Avatar -->
-    <UserAvatar {user} />
+    <UserAvatar {user} class="w-14" />
 
     <!-- Info -->
     <div class="flex-1 flex flex-col">
@@ -24,22 +26,26 @@
     </div>
 
     <!-- Follow button -->
-    <UserFollowButton />
+    {#if showFollow}
+      <UserFollowButton />
+    {/if}
 
-  </div>
+  </svelte:element>
 
 
 <!-- Skeleton -->
 {:else}
 
   <div class="flex items-center space-x-4 animate-pulse">
-    <UserAvatar />
+    <UserAvatar class="w-14" />
 
     <!-- Info -->
     <div class="flex-1 flex flex-col">
       <span class="block w-[80%] h-4 bg-white bg-opacity-10 rounded mb-2" />
       <span class="block w-[50%] h-3 bg-white bg-opacity-10 rounded mb-1 opacity-75" />
-      <span class="block w-[40%] h-3 bg-white bg-opacity-10 rounded opacity-50" />
+      {#if showLikes}
+        <span class="block w-[40%] h-3 bg-white bg-opacity-10 rounded opacity-50" />
+      {/if}
     </div>
   </div>
 

@@ -5,6 +5,7 @@
 
   export let user;
   export let showLikes;
+  export let showFollow;
 
 </script>
 
@@ -16,7 +17,7 @@
   {/if}
 
   <div class="space-y-4">
-    <UserRow {user} {showLikes} />
+    <UserRow {user} {showLikes} {showFollow} />
     <ContentGrid linked images={user?.topLikes} />
     <TopicsList linked topics={user?.interests} />
   </div>

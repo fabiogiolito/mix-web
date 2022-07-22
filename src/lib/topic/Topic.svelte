@@ -6,7 +6,7 @@
 {#if topic}
 
   {#if linked}
-    <a href="#topic/{topic}" class="btn btn-link relative z-10">
+    <a href="/topic/{topic}" class="btn btn-link relative z-10">
       <span class="tag mr-2 mb-2">{topic}</span>
     </a>
 

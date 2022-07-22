@@ -50,6 +50,13 @@
 
 </script>
 
+<!-- Centered Mix logo nav -->
+<div class="shrink-0 container mx-auto relative z-10 flex items-center justify-center px-6 h-20">
+  <a href="/">
+    <img src="logo_white.svg" alt="Mix" />
+  </a>
+</div>
+
 <div class="flex-1 flex flex-col items-center justify-center py-10">
 
   <!-- Video -->

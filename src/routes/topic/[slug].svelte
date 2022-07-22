@@ -3,6 +3,7 @@
 
   import API from "$lib/api";
 
+  import Modal from "$lib/elements/Modal.svelte";
   import Nav from "$lib/home/Nav.svelte";
   import TopicFollowButton from "$lib/topic/TopicFollowButton.svelte";
   import TopicsList from "$lib/topic/TopicsList.svelte";
@@ -11,6 +12,8 @@
 
   let slug = $page.params.slug;
   let topic;
+
+  let followersModalOpen = false;
 
   // Keep data updated if username changes
   $: if (slug) getData();
@@ -21,6 +24,10 @@
 
   async function getData() {
     topic = await API.topicFromSlug(slug);
+  }
+
+  function handleViewAllFollowers() {
+    followersModalOpen = !followersModalOpen;
   }
 
 </script>
@@ -45,7 +52,9 @@
           <div>
             <div class="flex mb-4">
               <p class="flex-1 font-medium opacity-50">Followed by</p>
-              <button class="btn btn-link text-sm font-normal text-orange-500">View all</button>
+              <button on:click={handleViewAllFollowers} class="btn btn-link text-sm font-normal text-orange-500">
+                View all
+              </button>
             </div>
 
             <div class="mb-6 space-y-4">
@@ -79,3 +88,13 @@
 
   {/if}
 </div>
+
+<Modal bind:isOpen={followersModalOpen} showClose>
+  <p class="font-medium text-xl mb-6">{topic?.followedCount || ''} Followers</p>
+
+  <div class="space-y-6">
+    {#each [...Array(20)] as _}
+      <UserRow showFollow linked user={topic?.sharedBy} />
+    {/each}
+  </div>
+</Modal>

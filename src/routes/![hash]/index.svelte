@@ -54,7 +54,9 @@
           <div>
             <div class="flex mb-4">
               <p class="flex-1 font-medium opacity-50">{content.likeCount} Likes</p>
-              <button class="btn btn-link text-sm font-normal text-orange-500">View all</button>
+              <button on:click={handleViewAllLikes} class="btn btn-link text-sm font-normal text-orange-500">
+                View all
+              </button>
             </div>
 
             <div class="mb-6 space-y-4">
@@ -87,8 +89,7 @@
   {/if}
 </div>
 
-
-<Modal bind:isOpen={likesModalOpen}>
+<Modal bind:isOpen={likesModalOpen} showClose>
   <p class="font-medium text-xl mb-6">{content?.likeCount || ''} Likes</p>
 
   <div class="space-y-6">

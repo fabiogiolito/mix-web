@@ -33,9 +33,9 @@
       </div>
 
       <div class="flex flex-col space-y-2 p-2">
-        <a class="btn btn-link text-sm text-left" href="mailto:support@mix.com"
-          >Contact</a
-        >
+        <a class="btn btn-link text-sm text-left" href="mailto:support@mix.com">
+          Contact
+        </a>
         <a class="btn btn-link text-sm text-left" href="/tos">Terms</a>
         <a class="btn btn-link text-sm text-left" href="/privacy">Privacy</a>
       </div>

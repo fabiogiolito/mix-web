@@ -7,22 +7,22 @@
   import IconTwitter from "$lib/icons/IconTwitter.svelte";
 </script>
 
-<div class="flex items-center space-x-4 px-4 lg:px-6 py-3">
-
-  <div class="lg:w-80 flex">
-    <a href="/" class="btn btn-link ">
-      <img src="/logo_white.svg" alt="Mix" />
+<div class="flex items-center space-x-4 pl-4 pr-2 lg:pl-6 lg:pr-4 py-2">
+  <div class="lg:w-80 flex pt-4">
+    <a href="/" class="btn btn-link">
+      <img src="/logo_white.svg" alt="Mix" class="w-24" />
     </a>
   </div>
 
   <span class="flex-1" />
 
-  <button class="btn btn-tertiary">
-    Get the app
-  </button>
+  <button class="btn btn-tertiary hidden">Get the app</button>
 
   <Dropdown right let:isOpen>
-    <button slot="trigger" class="btn btn-square {isOpen ? '' : 'bg-transparent'}">
+    <button
+      slot="trigger"
+      class="btn btn-square {isOpen ? '' : 'bg-transparent'}"
+    >
       <IconMenu />
     </button>
 
@@ -33,7 +33,9 @@
       </div>
 
       <div class="flex flex-col space-y-2 p-2">
-        <a class="btn btn-link text-sm text-left" href="mailto:support@mix.com">Contact</a>
+        <a class="btn btn-link text-sm text-left" href="mailto:support@mix.com"
+          >Contact</a
+        >
         <a class="btn btn-link text-sm text-left" href="/tos">Terms</a>
         <a class="btn btn-link text-sm text-left" href="/privacy">Privacy</a>
       </div>
@@ -46,12 +48,14 @@
           <IconInstagram class="w-4" />
         </a>
       </div>
-  
-      <span class="text-xs opacity-50 p-2">
-        © 2022 - Mix is an <a class="btn btn-link" href="https://expa.com/" target="_blank">Expa</a> company
-      </span>
 
+      <span class="text-xs opacity-50 p-2">
+        <span>© 2022 - Mix is an </span>
+        <a class="btn btn-link" href="https://expa.com/" target="_blank">
+          Expa
+        </a>
+        <span>company</span>
+      </span>
     </div>
   </Dropdown>
-
 </div>

@@ -18,7 +18,6 @@
   // Keep data updated if username changes
   $: if (slug) getData();
 
-
   // =====================================
   // FUNCTIONS
 
@@ -29,19 +28,15 @@
   function handleViewAllFollowers() {
     followersModalOpen = !followersModalOpen;
   }
-
 </script>
-<div class="min-h-available md:min-h-screen">
 
+<div class="min-h-available md:min-h-screen">
   <Nav />
 
   {#if topic}
-
     <div class="space-y-10 md:space-y-0 md:space-x-10">
-
       <div class="md:w-80 md:float-left p-6 pt-0 md:pt-6 md:sticky md:top-0">
         <div class="space-y-10">
-
           <div class="space-y-6">
             <p class="leading-tight text-3xl font-medium">
               {topic.title}
@@ -52,7 +47,10 @@
           <div>
             <div class="flex mb-4">
               <p class="flex-1 font-medium opacity-50">Followed by</p>
-              <button on:click={handleViewAllFollowers} class="btn btn-link text-sm font-normal text-orange-500">
+              <button
+                on:click={handleViewAllFollowers}
+                class="btn btn-link text-sm font-normal text-orange-500"
+              >
                 View all
               </button>
             </div>
@@ -74,27 +72,39 @@
               <TopicsList topics={topic.relatedTopics} linked long />
             </div>
           </div>
-
         </div>
       </div>
 
       <div class="flex-1 overflow-hidden">
-        <ContentGrid linked images={topic.content}
+        <ContentGrid
+          linked
+          images={topic.content}
           class="grid-cols-2 gap-2 p-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 md:p-4 2xl:grid-cols-5 3xl:grid-cols-6"
         />
       </div>
-
     </div>
-
   {/if}
 </div>
 
 <Modal bind:isOpen={followersModalOpen} showClose>
-  <p class="font-medium text-xl mb-6">{topic?.followedCount || ''} Followers</p>
+  <div class="p-4 lg:p-6 overflow-auto flex-1">
+    <p class="font-medium text-xl mb-6">
+      {topic?.followedCount || ""} Followers
+    </p>
 
-  <div class="space-y-6">
-    {#each [...Array(20)] as _}
-      <UserRow showFollow linked user={topic?.sharedBy} />
-    {/each}
+    <div class="flex-1 space-y-4">
+      {#each [...Array(5)] as _, index}
+        <div class="opacity-{100 - 20 * index}">
+          <UserRow linked user={topic?.sharedBy} />
+        </div>
+      {/each}
+    </div>
+  </div>
+
+  <div class="bg-stone-300 text-center p-4 lg:p-6 shrink-0">
+    <p class="text-sm mb-3 font-medium opacity-75">
+      Sign up to see all content
+    </p>
+    <button class="btn btn-primary btn-dot">Get the app</button>
   </div>
 </Modal>

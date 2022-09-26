@@ -29,16 +29,16 @@
 <div in:fly={{ y: 40, duration: 200 }} class="relative z-10 -mt-24">
 
 
-  <div class="flex flex-col md:flex-row relative mb-6">
+  <div class="flex flex-col relative mb-6">
 
-    <div class="w-64 inline-block bg-white rounded-t-xl md:rounded-tr-none md:rounded-l-xl p-4 pb-5 md:p-6 text-black text-center">
+    <div class="w-64 inline-block bg-white rounded-t-xl p-4 pb-5 md:p-6 text-black text-center">
       <img class="mx-auto w-full aspect-square mb-2" src="/qr_download.png" alt="Download app" />
       <span class="block font-medium text-lg">Scan to install</span>
     </div>
 
-    <div class="w-64 bg-white bg-opacity-10 rounded-b-xl md:rounded-l-none md:rounded-r-xl p-6 text-center flex flex-col items-center justify-center">
+    <div class="w-64 bg-white bg-opacity-10 rounded-b-xl p-6 py-4 text-center flex flex-col items-center justify-center">
 
-      <div class="mt-2 mb-7">
+      <div class="mt-2 mb-7 hidden">
 
         {#if !didSendSMS}
           <p class="leading-tight mb-4">Get a text message to download the app</p>

@@ -57,15 +57,15 @@
   </a>
 </div>
 
-<div class="flex-1 flex flex-col items-center justify-center py-10">
+<!-- Video -->
+<div class="overflow-hidden absolute inset-0 flex items-center justify-center transition-all {QRCodeVisible ? 'blur-lg' : ''}">
+  <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-[2] md:scale-125">
+    <source src="/carousel.webm" type="video/webm">
+    <source src="/carousel.mp4" type="video/mp4">
+  </video>
+</div>
 
-  <!-- Video -->
-  <div class="overflow-hidden absolute inset-0 flex items-center justify-center transition-all {QRCodeVisible ? 'blur-lg' : ''}">
-    <video muted autoplay loop playsinline class="mx-auto -mt-[40vh] lg:-mt-[25vh] xl:-mt-[30hv] scale-[2] md:scale-125">
-      <source src="/carousel.webm" type="video/webm">
-      <source src="/carousel.mp4" type="video/mp4">
-    </video>
-  </div>
+<div class="flex-1 flex flex-col items-center justify-center py-10 relative">
 
   <!-- Text content area -->
   <div class="relative px-6 pt-24">
@@ -112,5 +112,11 @@
 
     </div>
   </div>
+
+  <!-- Floating QR Code -->
+  <!-- <button class="hidden md:block p-1 rounded bg-white w-20 absolute bottom-0 right-0 mb-10 mr-6">
+    <img class="mx-auto w-full aspect-square" src="/qr_download.png" alt="Download app" />
+    <span class="block text-center text-xs text-black font-medium leading-none my-1">Scan to install</span>
+  </button> -->
 
 </div>
